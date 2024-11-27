@@ -1,0 +1,100 @@
+$Blue: hsl(246, 80%, 60%);
+$Light_red_work: hsl(15, 100%, 70%);
+$Soft_blue_play: hsl(195, 74%, 62%);
+$Light_red_study: hsl(348, 100%, 68%);
+$Lime_green_exercise: hsl(145, 58%, 55%);
+$Violet_social: hsl(264, 64%, 52%);
+$Soft_orange_self_care: hsl(43, 84%, 65%);
+$Very_dark_blue: hsl(226, 43%, 10%);
+$Dark_blue: hsl(235, 46%, 20%);
+$Desaturated_blue: hsl(235, 45%, 61%);
+$Pale_Blue: hsl(236, 100%, 87%);
+
+@mixin fFlexbox($height, $width, $direction){
+    flex-direction: $direction;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: $width;
+    height: $height;
+}
+@font-face {
+    font-family: 'my_font';
+    src: url(/fonts/Oswald-Light.ttf);
+  }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: fit-content;
+    font-family: 'my_font', sans-serif;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  #container{
+    @include fFlexbox(100vh, 100vw, column);
+    align-items: center;
+    min-width: fit-content;
+    min-height: fit-content;
+    background-color: $Very_dark_blue;
+
+    main{
+        @include fFlexbox(30rem, 62rem, row);
+        column-gap: 0.7rem;
+        #header{
+            @include fFlexbox(29rem, 15rem, column);
+            background-color: $Dark_blue;
+        }
+        #elements{
+            @include fFlexbox(30rem, 45rem, row);
+            flex-wrap: wrap;
+            column-gap: 0.9rem;
+            
+            .work{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+            .play{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+            .study{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+            .exercise{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+            .social{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+            .self_care{
+                @include fFlexbox(14rem, 14rem, column);
+                background-color: $Light_red_work;
+                border: 1px solid black;
+            }
+        }
+    }
+  }

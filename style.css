@@ -1,0 +1,137 @@
+@font-face {
+  font-family: "my_font";
+  src: url(/fonts/Oswald-Light.ttf);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: "my_font", sans-serif;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#container {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  background-color: hsl(226, 43%, 10%);
+}
+#container main {
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 62rem;
+  height: 30rem;
+  -moz-column-gap: 0.7rem;
+       column-gap: 0.7rem;
+}
+#container main #header {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 15rem;
+  height: 29rem;
+  background-color: hsl(235, 46%, 20%);
+}
+#container main #elements {
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 45rem;
+  height: 30rem;
+  flex-wrap: wrap;
+  -moz-column-gap: 0.9rem;
+       column-gap: 0.9rem;
+}
+#container main #elements .work {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}
+#container main #elements .play {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}
+#container main #elements .study {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}
+#container main #elements .exercise {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}
+#container main #elements .social {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}
+#container main #elements .self_care {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 14rem;
+  height: 14rem;
+  background-color: hsl(15, 100%, 70%);
+  border: 1px solid black;
+}/*# sourceMappingURL=style.css.map */
