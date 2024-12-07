@@ -18,10 +18,42 @@ $Pale_Blue: hsl(236, 100%, 87%);
     width: $width;
     height: $height;
 }
-@font-face {
-    font-family: 'my_font';
-    src: url(/fonts/Oswald-Light.ttf);
+
+@mixin text_style(){
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  h2{
+    width: fit-content;
+    padding-left: 1rem;
   }
+  img{
+    width: 2.5rem;
+    height: 0.4rem;
+    padding-right: 1rem;
+  }
+}
+
+@mixin current_time(){
+  p{
+    font-size: 3.2rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+@mixin last_time{
+  p{
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+//@font-face {
+    //font-family: 'my_font';
+    //src: url(/fonts/Oswald-Light.ttf);
+//  }
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -34,6 +66,7 @@ $Pale_Blue: hsl(236, 100%, 87%);
     -webkit-font-smoothing: antialiased;
     height: fit-content;
     font-family: 'my_font', sans-serif;
+    background-color: $Very_dark_blue;
   }
   img, picture, video, canvas, svg {
     display: block;
@@ -46,55 +79,370 @@ $Pale_Blue: hsl(236, 100%, 87%);
     overflow-wrap: break-word;
   }
 
-  #container{
+  #container {
     @include fFlexbox(100vh, 100vw, column);
     align-items: center;
     min-width: fit-content;
     min-height: fit-content;
     background-color: $Very_dark_blue;
+  
+    main {
+      @include fFlexbox(30rem, 62rem, row);
+      column-gap: 0.7rem;
+  
+      #header {
+        @include fFlexbox(29rem, 15rem, column);
+        background-color: $Dark_blue;
+        border-radius: 1rem;
+        #header_logo {
+          @include fFlexbox(70%, 100%, column);
+          text-align: left;
+          padding-left: 1rem;
+          row-gap: 0.5rem;
+          background-color: $Blue;
+          border-radius: 1rem;
+          img {
+            width: 5rem;
+            height: auto;
+          }
+        }
+  
+        #navigation {
+          @include fFlexbox(30%, 100%, row);
+          background-color: $Dark_blue;
+          border-radius: 1rem;
+          ul{
+            width: 100%;
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            padding-left: 1rem;
+            li{
+              color: $Desaturated_blue;
+              padding-block: 0.3rem;
+              width: fit-content;
+            }
+            li:hover{
+              color: $Pale_Blue;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+  
+      #elements {
+        @include fFlexbox(30rem, 45rem, row);
+        flex-wrap: wrap;
+        column-gap: 0.9rem;
+        .work {
+          @include fFlexbox(14rem, 14rem, column);
+          background-color: $Dark_blue;
+          border-radius: 1rem;
+          position: relative;
 
-    main{
-        @include fFlexbox(30rem, 62rem, row);
-        column-gap: 0.7rem;
-        #header{
-            @include fFlexbox(29rem, 15rem, column);
+          .img {
+            @include fFlexbox(90%, 100%, row);
+            background-color: $Light_red_work;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: right;
+            img{
+              height: 4rem;
+              padding-right: 1rem;
+            }
+          }
+
+          .text1 {
+            @include fFlexbox(80%, 100%, column);
+            position: absolute; 
+            top: 20.5%; 
             background-color: $Dark_blue;
+            z-index: 10;
+            border-radius: 1rem;
+            color: $Pale_Blue;
+            .text1_header{
+              @include text_style();
+            }
+            .text1_current_time{
+              @include current_time();
+            }
+            .text1_last_time{
+              @include last_time();
+            }
+          }
         }
-        #elements{
-            @include fFlexbox(30rem, 45rem, row);
-            flex-wrap: wrap;
-            column-gap: 0.9rem;
-            
-            .work{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
+        .play{
+            @include fFlexbox(14rem, 14rem, column);
+            background-color: $Dark_blue;
+            border-radius: 1rem;
+            position: relative;
+            .img {
+              @include fFlexbox(90%, 100%, row);
+              background-color: $Soft_blue_play;
+              border-radius: 1rem;
+              margin-bottom: 1.5rem;
+              justify-content: right;
+              img{
+                height: 4rem;
+                padding-right: 1rem;
+              }
             }
-            .play{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
-            }
-            .study{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
-            }
-            .exercise{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
-            }
-            .social{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
-            }
-            .self_care{
-                @include fFlexbox(14rem, 14rem, column);
-                background-color: $Light_red_work;
-                border: 1px solid black;
+  
+            .text2 {
+              @include fFlexbox(80%, 100%, column);
+              position: absolute; 
+              top: 20.5%; 
+              background-color: $Dark_blue;
+              z-index: 10;
+              border-radius: 1rem;
+              color: $Pale_Blue;
+              .text2_header{
+                @include text_style();
+              }
+              .text2_current_time{
+                @include current_time();
+              }
+              .text2_last_time{
+                @include last_time();
+              }
             }
         }
+        .study{
+            @include fFlexbox(14rem, 14rem, column);
+            background-color: $Dark_blue;
+            position: relative;
+            border-radius: 1rem;
+            .img {
+              @include fFlexbox(90%, 100%, row);
+              background-color: $Light_red_study;
+              border-radius: 1rem;
+              margin-bottom: 1.5rem;
+              justify-content: right;
+              img{
+                height: 4rem;
+                padding-right: 1rem;
+              }
+            }
+  
+            .text3 {
+              @include fFlexbox(80%, 100%, column);
+              position: absolute; 
+              top: 20.5%; 
+              background-color: $Dark_blue;
+              z-index: 10;
+              border-radius: 1rem;
+              color: $Pale_Blue;
+              .text3_header{
+                @include text_style();
+              }
+              .text3_current_time{
+                @include current_time();
+              }
+              .text3_last_time{
+                @include last_time();
+              }
+            }
+        }
+        .exercise{
+            @include fFlexbox(14rem, 14rem, column);
+            background-color: $Dark_blue;
+            position: relative;
+            border-radius: 1rem;
+            .img {
+              @include fFlexbox(90%, 100%, row);
+              background-color: $Lime_green_exercise;
+              border-radius: 1rem;
+              margin-bottom: 1.5rem;
+              justify-content: right;
+              img{
+                height: 4rem;
+                padding-right: 1rem;
+              }
+            }
+  
+            .text4 {
+              @include fFlexbox(80%, 100%, column);
+              position: absolute; 
+              top: 20.5%; 
+              background-color: $Dark_blue;
+              z-index: 10;
+              border-radius: 1rem;
+              color: $Pale_Blue;
+              .text4_header{
+                @include text_style();
+              }
+              .text4_current_time{
+                @include current_time();
+              }
+              .text4_last_time{
+                @include last_time();
+              }
+            }
+        }
+        .social{
+            @include fFlexbox(14rem, 14rem, column);
+            background-color: $Dark_blue;
+            position: relative;
+            border-radius: 1rem;
+            .img {
+              @include fFlexbox(90%, 100%, row);
+              background-color: $Violet_social;
+              border-radius: 1rem;
+              margin-bottom: 1.5rem;
+              justify-content: right;
+              img{
+                height: 4rem;
+                padding-right: 1rem;
+              }
+            }
+  
+            .text5 {
+              @include fFlexbox(80%, 100%, column);
+              position: absolute; 
+              top: 20.5%; 
+              background-color: $Dark_blue;
+              z-index: 10;
+              border-radius: 1rem;
+              color: $Pale_Blue;
+              .text5_header{
+                @include text_style();
+              }
+              .text5_current_time{
+                @include current_time();
+              }
+              .text5_last_time{
+                @include last_time();
+              }
+            }
+        }
+        .self_care{
+            @include fFlexbox(14rem, 14rem, column);
+            background-color: $Dark_blue;
+            position: relative;
+            border-radius: 1rem;
+            .img {
+              @include fFlexbox(90%, 100%, row);
+              background-color: $Soft_orange_self_care;
+              border-radius: 1rem;
+              margin-bottom: 1.5rem;
+              justify-content: right;
+              img{
+                height: 4rem;
+                padding-right: 1rem;
+              }
+            }
+  
+            .text6 {
+              @include fFlexbox(80%, 100%, column);
+              position: absolute; 
+              top: 20.5%; 
+              background-color: $Dark_blue;
+              z-index: 10;
+              border-radius: 1rem;
+              color: $Pale_Blue;
+              .text6_header{
+                @include text_style();
+              }
+              .text6_current_time{
+                @include current_time();
+              }
+              .text6_last_time{
+                @include last_time();
+              }
+            }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    #container {
+      main {
+        @include fFlexbox(fit-content, fit-content, column);
+        #header {
+          @include fFlexbox(12rem, 20rem, column);
+          #header_logo {
+            flex-direction: row;
+            padding-top: 2.1rem;
+            column-gap: 1rem;
+            #header_text{
+              h1{
+                font-size: 1.5rem;
+              }
+            }
+            img {
+              width: 4rem;
+              height: 4rem;
+            }
+          }
+          #navigation {
+            padding-top: 0.7rem;
+            ul {
+              display: flex;
+              flex-direction: row;
+              column-gap: 2.5rem;
+              justify-content: center;
+              li {
+                margin-right: 1rem;
+              }
+            }
+          }
+        }
+        #elements {
+          @include fFlexbox(fit-content, fit-content, column);
+          row-gap: 1.5rem;
+          padding-top: 1.5rem;
+          .work, .play, .study, .exercise, .social, .self_care {
+            height: 12rem;
+            width: 20rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait){
+    #container {
+      main {
+        @include fFlexbox(fit-content, fit-content, column);
+        #header {
+          @include fFlexbox(12rem, 20rem, column);
+          #header_logo {
+            flex-direction: row;
+            padding-top: 2.1rem;
+            column-gap: 1rem;
+            #header_text{
+              h1{
+                font-size: 1.5rem;
+              }
+            }
+            img {
+              width: 4rem;
+              height: 4rem;
+            }
+          }
+          #navigation {
+            padding-top: 0.7rem;
+            ul {
+              display: flex;
+              flex-direction: row;
+              column-gap: 2.5rem;
+              justify-content: center;
+              li {
+                margin-right: 1rem;
+              }
+            }
+          }
+        }
+        #elements {
+          @include fFlexbox(fit-content, fit-content, column);
+          row-gap: 1.5rem;
+          padding-top: 1.5rem;
+          .work, .play, .study, .exercise, .social, .self_care {
+            height: 12rem;
+            width: 20rem;
+          }
+        }
+      }
     }
   }
